@@ -69,6 +69,7 @@ function eliminate() {
 function undo() {
 	POINTS.pop();
 	LASTUPDATE = Array(21).fill(0);
+	SELECTED = Array(21).fill(0);
 	saveGame();
 	drawBoard();
 }
@@ -96,10 +97,10 @@ function restoreGame() {
 function drawBoard() {
 	let currentPoints = [...POINTS[POINTS.length-1]];
 	let minPoint = Math.min(...currentPoints);
-	FIRSTROWPOINT = minPoint - minPoint % 5;
+	let firstRowPoint = minPoint - minPoint % 5;
 	for (let r = 0; r <= 15; r++) {
 		// write numbers in points column
-		let pointValue = FIRSTROWPOINT + r
+		let pointValue = firstRowPoint + r
 		let id = "square" + String(r).padStart(2,'0') + "00";
 		el = document.getElementById(id);
 		el.innerText = pointValue;
@@ -120,7 +121,7 @@ function drawBoard() {
 			BOARD[r][c].button.classList.remove("lastupdate")
 			BOARD[r][c].occupied = false;
 			BOARD[r][c].button.innerText = "";
-			if (r + FIRSTROWPOINT == POINTS[POINTS.length-1][c]) {
+			if (r + firstRowPoint == POINTS[POINTS.length-1][c]) {
 				BOARD[r][c].button.classList.add("occupied")
 				BOARD[r][c].occupied = true;
 				BOARD[r][c].button.innerText = c;
@@ -166,7 +167,6 @@ let BOARD = [];
 let SELECTED = Array(21).fill(0);
 let LASTUPDATE = Array(21).fill(0);
 let POINTS;
-let FIRSTROWPOINT = 0;
 window.onload = setup;
 
 
