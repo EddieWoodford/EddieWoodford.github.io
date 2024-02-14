@@ -1,3 +1,6 @@
+body {
+	background-color: black;
+}
 :root {
     --board-font-size: 3dvh; /* controls the board square size via the em unit */
 }
@@ -11,7 +14,7 @@
     flex-flow: column-reverse nowrap;
     order: 1;
     justify-content: center;
-	border: black solid 1px;
+	border: white solid 1px;
 }
 .points {
     display: flex;
@@ -23,12 +26,14 @@
 	display: flex;
     align-items: center;
     justify-content: center;
-	background-color: white;
+	background-color: black;
+	color: white;
     width: 1.4em;
     height: 1.4em;
     font-size: 10dvmin;
 	border-radius: 0.5em;
 	cursor: pointer;
+	border: white solid 1px;
 }
 .boardrow {
     display: flex;
@@ -37,7 +42,7 @@
     /* align-context: center; */
 }
 .multipleOfFive {
-	border: black solid 1px;
+	border: white solid 1px;
 }
 .scoresquare { 
     background-color: grey;
@@ -51,7 +56,7 @@
 	border: black solid 1px;
 }
 .boardsquare { 
-    background-color: white;
+    background-color: black;
     width: 2em;
     height: 2em;
     font-size: var(--board-font-size);
