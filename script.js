@@ -54,12 +54,14 @@ function assignPoints(n) {
 }
 
 function eliminate() {
+	let newPoints = [...POINTS[POINTS.length-1]];
 	for (c=1; c<=20; c++) {
 		if (SELECTED[c] == 1) {
-			POINTS[POINTS.length-1][c] = 1000;
+			newPoints[c] = 1000;
 			SELECTED[c] = 0;
 		}
 	}
+	POINTS.push(newPoints);
 	saveGame();
 	drawBoard();
 }
